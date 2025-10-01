@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Elegant Flora Boutique",
-  description: "Beautiful AI-powered website creation platform",
+  title: "System Diagnostics",
+  description: "System diagnostic and maintenance tools",
 };
 
 export default function RootLayout({
