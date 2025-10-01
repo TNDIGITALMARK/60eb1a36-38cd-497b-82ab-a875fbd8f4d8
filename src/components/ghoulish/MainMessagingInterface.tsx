@@ -59,6 +59,7 @@ export function MainMessagingInterface({ isPanicMode, onLogout }: MainMessagingI
   const [messageInput, setMessageInput] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [showSettings, setShowSettings] = useState(false);
+  const [showAddContact, setShowAddContact] = useState(false);
 
   // Mock data - in real app, this would come from encrypted storage
   const [contacts] = useState<Contact[]>([
@@ -150,6 +151,21 @@ export function MainMessagingInterface({ isPanicMode, onLogout }: MainMessagingI
     return `${hours}h ${minutes}m`;
   };
 
+  const handleConfigurePanicMode = () => {
+    alert('Panic mode configuration panel would open here. This would allow users to set custom panic codes and emergency contacts.');
+  };
+
+  const handleThemeToggle = () => {
+    alert('Theme toggle functionality would be implemented here. This would switch between dark and light themes.');
+  };
+
+  const handleAddContact = () => {
+    const contactName = prompt('Enter contact name or code name:');
+    if (contactName && contactName.trim()) {
+      alert(`Contact "${contactName}" would be added to your encrypted contact list. In a real implementation, this would involve secure key exchange.`);
+    }
+  };
+
   return (
     <div className="w-full max-w-6xl mx-auto h-screen flex flex-col">
       {/* Header */}
@@ -194,11 +210,11 @@ export function MainMessagingInterface({ isPanicMode, onLogout }: MainMessagingI
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-sm">Panic mode codes</span>
-                      <Button variant="outline" size="sm">Configure</Button>
+                      <Button variant="outline" size="sm" onClick={handleConfigurePanicMode}>Configure</Button>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-sm">Theme</span>
-                      <Button variant="outline" size="sm">Dark</Button>
+                      <Button variant="outline" size="sm" onClick={handleThemeToggle}>Dark</Button>
                     </div>
                   </div>
                 </SheetContent>
@@ -269,6 +285,7 @@ export function MainMessagingInterface({ isPanicMode, onLogout }: MainMessagingI
                   variant="outline"
                   className="w-full mt-4"
                   size="sm"
+                  onClick={handleAddContact}
                 >
                   <Plus className="h-4 w-4 mr-2" />
                   Add Contact
